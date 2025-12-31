@@ -10,19 +10,16 @@ Version: 1.4.18
 Release: 7%{?dist}
 License: GPLv3+
 Group: Applications/Text
-Source0: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz
-Source1: http://ftp.gnu.org/gnu/m4/m4-%{version}.tar.xz.sig
+Source0: https://raw.githubusercontent.com/rpmsoftwarecollection/php56-m4/refs/heads/main/m4-%{version}.tar.xz
+Source1: https://raw.githubusercontent.com/rpmsoftwarecollection/php56-m4/refs/heads/main/m4-%{version}.tar.xz.sig
 URL: http://www.gnu.org/software/m4/
 # Patch0: update to glibc libio.h removal, rhbz#1573342
-Patch0: m4-1.4.18-glibc-change-work-around.patch
+Patch0: https://raw.githubusercontent.com/rpmsoftwarecollection/php56-m4/refs/heads/main/m4-1.4.18-glibc-change-work-around.patch
 Requires(post): /sbin/install-info
 Requires(preun): /sbin/install-info
 %{?scl:Requires: %{scl}-runtime}
 %{?scl:BuildRequires: %{scl}-runtime}
 BuildRequires: autoconf automake
-%ifarch ppc ppc64
-BuildRequires: %{?scl_prefix}texinfo
-%endif
 # Gnulib bundled - the library has been granted an exception, see https://fedorahosted.org/fpc/ticket/174
 # Gnulib is not versioned, see m4 ChangeLog for approximate date of Gnulib copy
 Provides: bundled(gnulib)
